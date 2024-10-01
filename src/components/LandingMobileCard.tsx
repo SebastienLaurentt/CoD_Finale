@@ -13,7 +13,7 @@ const LandingMobileCard = () => {
       <img
         src={CoDLogo}
         alt="Clash of Dev Logo"
-        className="absolute left-[285px] top-[28px] h-[70px] w-[73px]"
+        className="absolute left-[285px] top-[28px]"
       />
     </div>
   );
