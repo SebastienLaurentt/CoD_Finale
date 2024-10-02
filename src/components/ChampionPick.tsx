@@ -27,12 +27,12 @@ const ChampionPick: React.FC<ChampionPickProps> = ({ selectedCardIndex, onCardSe
       </div>
       <img
         src={BlueIcon}
-        alt="Image représentant le personnage boss appelé 'SurBoosted'"
+        alt="Rond bleu avec éclair blanc"
         className="absolute left-[1100px] top-[-80px]"
       />
       <img
         src={GreenIcon}
-        alt="Image représentant le personnage boss appelé 'SurBoosted'"
+        alt="Rond vert avec étoile blanche dedans"
         className="absolute bottom-[-50px] left-[-50px]"
       />
       <img

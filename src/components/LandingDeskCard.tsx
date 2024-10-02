@@ -60,12 +60,12 @@ const LandingDeskCard = () => {
       />
       <img
         src={BlueIcon}
-        alt="Image représentant le personnage boss appelé 'SurBoosted'"
+        alt="Rond bleu avec éclair blanc"
         className="absolute left-[1023px] top-[-60px]"
       />
       <img
         src={GreenIcon}
-        alt="Image représentant le personnage boss appelé 'SurBoosted'"
+        alt="Rond vert avec étoile blanche dedans"
         className="absolute left-[416px] top-[246px]"
       />
       <Cursor
