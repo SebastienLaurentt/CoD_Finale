@@ -1,4 +1,5 @@
 import CoDLogo from "../assets/CoDLogo.svg";
+import LinkButton from "./LinkButton";
 
 const MobileCard = () => {
   return (
@@ -7,13 +8,13 @@ const MobileCard = () => {
       <p className="mt-[102px] text-justify text-[40px] font-semibold leading-[48px]">
         Oops ! Le gameplay est réservé aux joueurs PC (ehoui)...{" "}
       </p>
-      <button className="mx-auto mt-[97px] w-[212px] rounded-[60px] bg-background px-2.5 py-[22px] text-sm font-semibold text-foreground">
-        Go back!
-      </button>
+      <LinkButton to="/pick" className="mx-auto mt-[97px]" variant="secondary">
+        Start the Game
+      </LinkButton>
       <img
         src={CoDLogo}
         alt="Clash of Dev Logo"
-        className="absolute left-[285px] top-[28px]"
+        className="absolute left-[285px] top-[28px] "
       />
     </div>
   );

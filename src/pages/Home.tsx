@@ -1,16 +1,13 @@
-import { Link } from "react-router-dom";
 import LandingDeskCard from "../components/LandingDeskCard";
+import LinkButton from "../components/LinkButton";
 
 const Home = () => {
   return (
     <div className="flex flex-col items-center">
       <LandingDeskCard />
-      <Link
-        to="/pick"
-        className="mt-[73px] w-[212px] rounded-[60px] bg-primary px-2.5 py-[22px] text-center text-sm font-semibold text-primary-foreground"
-      >
+      <LinkButton to="/pick" className="mt-[73px]" >
         Start the Game
-      </Link>
+      </LinkButton>
     </div>
   );
 };

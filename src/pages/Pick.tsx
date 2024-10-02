@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import ChampionPick from "../components/ChampionPick";
+import LinkButton from "../components/LinkButton";
 
 const Pick = () => {
   const [selectedCardIndex, setSelectedCardIndex] = useState<number | null>(
@@ -17,16 +17,13 @@ const Pick = () => {
         selectedCardIndex={selectedCardIndex}
         onCardSelect={handleCardSelect}
       />
-      <Link
+      <LinkButton
         to="/fight"
-        className={`mt-[73px] w-[212px] cursor-pointer  rounded-[60px] bg-primary px-2.5 py-[22px] text-center text-sm font-semibold text-primary-foreground ${
-          selectedCardIndex !== null
-            ? ""
-            : "pointer-events-none cursor-not-allowed opacity-60 "
-        }`}
+        className="mt-[73px]"
+        disabled={selectedCardIndex === null}
       >
         Select Champion
-      </Link>
+      </LinkButton>
     </div>
   );
 };
