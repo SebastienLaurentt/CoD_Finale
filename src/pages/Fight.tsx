@@ -33,8 +33,6 @@ const Fight = () => {
   >(Array(randomKeys.length).fill("pending"));
   const [isArtisteHurt, setIsArtisteHurt] = useState(false);
   const [isBossHurt, setIsBossHurt] = useState(false);
-
-
   const [artisteMalus, setArtisteMalus] = useState({ show: false, key: 0 });
   const [bossMalus, setBossMalus] = useState({ show: false, key: 0 });
 
