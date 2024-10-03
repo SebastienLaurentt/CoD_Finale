@@ -6,6 +6,7 @@ import ArtisteFightHurt from "../assets/ArtisteFightHurt.svg";
 import BossFight from "../assets/BossFight.svg";
 import BossFightHurt from "../assets/BossFightHurt.svg";
 import FightLogo from "../assets/FightLogo.svg";
+import MalusImage from "../assets/Malus.svg"; // Assurez-vous d'avoir cette image
 import Key from "../components/Key";
 import Point from "../components/Point";
 import { animateHurt } from "../lib/animateHurt";
@@ -33,10 +34,13 @@ const Fight = () => {
   const [isArtisteHurt, setIsArtisteHurt] = useState(false);
   const [isBossHurt, setIsBossHurt] = useState(false);
 
+
+  const [artisteMalus, setArtisteMalus] = useState({ show: false, key: 0 });
+  const [bossMalus, setBossMalus] = useState({ show: false, key: 0 });
+
   // 2) Key Press Handler and FeedBack
   const handleKeyPress = useCallback(
     (event: KeyboardEvent) => {
-
       const currentKey = randomKeys[currentKeyIndex];
       let isCorrect = false;
 
@@ -75,6 +79,8 @@ const Fight = () => {
           return newPoints;
         });
         animateHurt(setIsBossHurt);
+        setBossMalus({ show: true, key: Date.now() });
+        setTimeout(() => setBossMalus({ show: false, key: Date.now() }), 1000);
       } else {
         setRedPoints((prev) => {
           const newPoints = prev + 1;
@@ -84,6 +90,8 @@ const Fight = () => {
           return newPoints;
         });
         animateHurt(setIsArtisteHurt);
+        setArtisteMalus({ show: true, key: Date.now() });
+        setTimeout(() => setArtisteMalus({ show: false, key: Date.now() }), 1000);
       }
 
       setCurrentKeyIndex((prev) => prev + 1);
@@ -121,23 +129,43 @@ const Fight = () => {
             </li>
           ))}
         </ul>
-        <div className="mb-10 mt-20 flex flex-row justify-between px-8">
-          <img
-            src={isArtisteHurt ? ArtisteFightHurt : ArtisteFight}
-            alt={
-              isArtisteHurt
-                ? "Image de l'artiste blessé en combat"
-                : "Image de l'artiste en combat"
-            }
-          />
-          <img
-            src={isBossHurt ? BossFightHurt : BossFight}
-            alt={
-              isBossHurt
-                ? "Image du boss blessé en combat"
-                : "Image du boss en combat"
-            }
-          />
+        <div className="relative mb-10 mt-20 flex flex-row justify-between px-8">
+          <div className="relative">
+            <img
+              src={isArtisteHurt ? ArtisteFightHurt : ArtisteFight}
+              alt={
+                isArtisteHurt
+                  ? "Image de l'artiste blessé en combat"
+                  : "Image de l'artiste en combat"
+              }
+            />
+            {artisteMalus.show && (
+              <img
+                key={artisteMalus.key}
+                src={MalusImage}
+                alt="Malus"
+                className="animate-malus absolute right-0 top-0"
+              />
+            )}
+          </div>
+          <div className="relative">
+            <img
+              src={isBossHurt ? BossFightHurt : BossFight}
+              alt={
+                isBossHurt
+                  ? "Image du boss blessé en combat"
+                  : "Image du boss en combat"
+              }
+            />
+            {bossMalus.show && (
+              <img
+                key={bossMalus.key}
+                src={MalusImage}
+                alt="Malus"
+                className="animate-malus absolute left-0 top-0"
+              />
+            )}
+          </div>
         </div>
         <div className="flex w-full flex-row justify-center gap-x-10">
           {randomKeys.map((direction, index) => (
