@@ -1,3 +1,4 @@
+import React, { RefObject } from 'react';
 import ArtisteWinner from "../assets/ArtisteWinner.svg";
 import BlueIcon from "../assets/BlueIcon.svg";
 import CoDLogo from "../assets/CoDLogo.svg";
@@ -5,7 +6,12 @@ import PinkCodLogo from "../assets/PinkCodLogo.svg";
 import SurBoostedLoser from "../assets/SurBoostedLoser.svg";
 import Cursor from "./Cursor";
 
-const WinnerCard = () => {
+interface WinnerCardProps {
+  artisteRef: RefObject<HTMLImageElement>;
+  onArtisteHover: (isHovering: boolean) => void;
+}
+
+const WinnerCard: React.FC<WinnerCardProps> = ({ artisteRef, onArtisteHover }) => {
   return (
     <div className="relative mx-auto mt-[42px] h-[631px] w-[1023px]">
       <div className="relative flex size-full flex-col overflow-hidden rounded-[60px] bg-primary pl-[86px] pt-12 text-primary-foreground">
@@ -43,9 +49,12 @@ const WinnerCard = () => {
         className="absolute -left-8 -top-8 "
       />
       <img
+        ref={artisteRef}
         src={ArtisteWinner}
         alt="Image représentant le personnage artiste en vainqueur dessus le personnage boss appelé 'SurBoosted'"
-        className="absolute left-[420px] top-[180px] "
+        className="absolute left-[420px] top-[180px] cursor-pointer"
+        onMouseEnter={() => onArtisteHover(true)}
+        onMouseLeave={() => onArtisteHover(false)}
       />
       <img
         src={BlueIcon}

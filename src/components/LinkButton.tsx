@@ -1,3 +1,4 @@
+import React, { forwardRef } from "react";
 import { VariantProps, cva } from "class-variance-authority";
 import { Link } from "react-router-dom";
 
@@ -28,15 +29,16 @@ interface LinkButtonProps extends VariantProps<typeof buttonVariants> {
   disabled?: boolean;
 }
 
-const LinkButton = ({
+const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(({
   to,
   children,
   variant,
   className = "",
   disabled = false,
-}: LinkButtonProps) => {
+}, ref) => {
   return (
     <Link
+      ref={ref}
       to={to}
       role="button"
       className={buttonVariants({ variant, disabled, className })}
@@ -49,6 +51,8 @@ const LinkButton = ({
       {children}
     </Link>
   );
-};
+});
+
+LinkButton.displayName = "LinkButton";
 
 export default LinkButton;
