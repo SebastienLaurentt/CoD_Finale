@@ -6,7 +6,7 @@ import ArtisteFightHurt from "../assets/ArtisteFightHurt.svg";
 import BossFight from "../assets/BossFight.svg";
 import BossFightHurt from "../assets/BossFightHurt.svg";
 import FightLogo from "../assets/FightLogo.svg";
-import MalusImage from "../assets/Malus.svg";
+import MalusImage from "../assets/Malus.svg"; 
 import Key from "../components/Key";
 import Point from "../components/Point";
 import { animateHurt } from "../lib/animateHurt";
@@ -41,17 +41,44 @@ const Fight = () => {
     ("success" | "failure" | "pending")[]
   >(Array(randomKeys.length).fill("pending"));
 
-  const [timer, setTimer] = useState<number | null>(null);
+  const handleKeyPress = useCallback(
+    (event: KeyboardEvent) => {
+      if (!gameStarted) {
+        if (event.key === "Enter") {
+          setGameStarted(true);
+        }
+        return;
+      }
 
-  const updatePointsAndFeedback = useCallback(
-    (isCorrect: boolean, index: number) => {
-      // Update the key results
+      const currentKey = randomKeys[currentKeyIndex];
+      let isCorrect = false;
+
+      //  2B) Match the key pressed with the current key
+      switch (event.key) {
+        case "ArrowLeft":
+          isCorrect = currentKey === "left";
+          break;
+        case "ArrowUp":
+          isCorrect = currentKey === "up";
+          break;
+        case "ArrowDown":
+          isCorrect = currentKey === "down";
+          break;
+        case "ArrowRight":
+          isCorrect = currentKey === "right";
+          break;
+        default:
+          return;
+      }
+
+      // 2C) Update the key results
       setKeyResults((prev) => {
         const newResults = [...prev];
-        newResults[index] = isCorrect ? "success" : "failure";
+        newResults[currentKeyIndex] = isCorrect ? "success" : "failure";
         return newResults;
       });
 
+      // 2D) Update the points and FeedBack
       if (isCorrect) {
         setGreenPoints((prev) => {
           const newPoints = prev + 1;
@@ -78,70 +105,10 @@ const Fight = () => {
           1000
         );
       }
-    },
-    [navigate]
-  );
-
-  const startTimer = useCallback(() => {
-    const newTimer = setTimeout(() => {
-      // Handle timeout (treat as wrong key press)
-      updatePointsAndFeedback(false, currentKeyIndex);
-      setCurrentKeyIndex((prev) => prev + 1);
-      startTimer(); // Start a new timer for the next key
-    }, 2000);
-    setTimer(newTimer);
-  }, [currentKeyIndex, updatePointsAndFeedback]);
-
-  const handleKeyPress = useCallback(
-    (event: KeyboardEvent) => {
-      if (!gameStarted) {
-        if (event.key === "Enter") {
-          setGameStarted(true);
-          startTimer(); // Start the timer when the game starts
-        }
-        return;
-      }
-
-      // Clear the existing timer
-      if (timer) {
-        clearTimeout(timer);
-      }
-
-      const currentKey = randomKeys[currentKeyIndex];
-      let isCorrect = false;
-
-      //  2B) Match the key pressed with the current key
-      switch (event.key) {
-        case "ArrowLeft":
-          isCorrect = currentKey === "left";
-          break;
-        case "ArrowUp":
-          isCorrect = currentKey === "up";
-          break;
-        case "ArrowDown":
-          isCorrect = currentKey === "down";
-          break;
-        case "ArrowRight":
-          isCorrect = currentKey === "right";
-          break;
-        default:
-          return;
-      }
-
-      // Update points and feedback
-      updatePointsAndFeedback(isCorrect, currentKeyIndex);
 
       setCurrentKeyIndex((prev) => prev + 1);
-      startTimer(); // Start a new timer for the next key
     },
-    [
-      currentKeyIndex,
-      gameStarted,
-      timer,
-      randomKeys,
-      updatePointsAndFeedback,
-      startTimer,
-    ]
+    [currentKeyIndex, navigate, gameStarted]
   );
 
   // 2A) Key Press Listener
@@ -149,18 +116,8 @@ const Fight = () => {
     window.addEventListener("keydown", handleKeyPress);
     return () => {
       window.removeEventListener("keydown", handleKeyPress);
-      if (timer) {
-        clearTimeout(timer);
-      }
     };
-  }, [handleKeyPress, timer]);
-
-  // Start the timer when the game starts
-  useEffect(() => {
-    if (gameStarted) {
-      startTimer();
-    }
-  }, [gameStarted, startTimer]);
+  }, [handleKeyPress]);
 
   return (
     <div className="relative h-screen">

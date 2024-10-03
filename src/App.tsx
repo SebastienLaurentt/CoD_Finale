@@ -1,7 +1,7 @@
 import { Route, Routes } from "react-router-dom";
 import Header from "./components/Header";
 import LandingMobile from "./components/LandingMobile";
-import Fight from "./pages/Fight";
+import Fight from "./pages/Fight_Copy";
 import Home from "./pages/Home";
 import Loser from "./pages/Loser";
 import Pick from "./pages/Pick";
