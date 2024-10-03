@@ -2,22 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-
 :root {
-  --background: #1E1E1E;
-  --foreground: #F3F3F1;
-  --primary: #F3F3F1;
+  --background: #1e1e1e;
+  --foreground: #f3f3f1;
+  --primary: #f3f3f1;
   --primary-foreground: #262625;
-
 }
-
 
 @keyframes malus {
   0% {
     transform: translateY(-20px);
     opacity: 0;
   }
-  20%, 80% {
+  20%,
+  80% {
     transform: translateY(0);
     opacity: 1;
   }
@@ -32,3 +30,27 @@
   pointer-events: none;
 }
 
+
+
+@keyframes arcade-blink {
+  0%, 100% {
+    opacity: 1;
+    color: #EBEDFF;
+    text-shadow: 0 0 5px #EBEDFF, 
+                 0 0 10px #EBEDFF, 
+                 0 0 15px #EBEDFF;
+  }
+  50% {
+    opacity: 0.8;
+    color: #EBEDFF;
+    text-shadow: 0 0 2px #EBEDFF;
+  }
+}
+
+.animate-arcade-blink {
+  animation: arcade-blink 2s ease-in-out infinite;
+}
+
+.animate-arcade-blink {
+  animation: arcade-blink 2s ease-in-out infinite;
+}

@@ -6,7 +6,7 @@ import ArtisteFightHurt from "../assets/ArtisteFightHurt.svg";
 import BossFight from "../assets/BossFight.svg";
 import BossFightHurt from "../assets/BossFightHurt.svg";
 import FightLogo from "../assets/FightLogo.svg";
-import MalusImage from "../assets/Malus.svg"; // Assurez-vous d'avoir cette image
+import MalusImage from "../assets/Malus.svg"; 
 import Key from "../components/Key";
 import Point from "../components/Point";
 import { animateHurt } from "../lib/animateHurt";
@@ -26,6 +26,8 @@ const randomKeys = Array(10)
 const Fight = () => {
   const navigate = useNavigate();
 
+  const [gameStarted, setGameStarted] = useState(false);
+
   const [greenPoints, setGreenPoints] = useState(0);
   const [redPoints, setRedPoints] = useState(0);
 
@@ -39,9 +41,15 @@ const Fight = () => {
     ("success" | "failure" | "pending")[]
   >(Array(randomKeys.length).fill("pending"));
 
-  // 2) Key Press Handler and FeedBack
   const handleKeyPress = useCallback(
     (event: KeyboardEvent) => {
+      if (!gameStarted) {
+        if (event.key === "Enter") {
+          setGameStarted(true);
+        }
+        return;
+      }
+
       const currentKey = randomKeys[currentKeyIndex];
       let isCorrect = false;
 
@@ -100,7 +108,7 @@ const Fight = () => {
 
       setCurrentKeyIndex((prev) => prev + 1);
     },
-    [currentKeyIndex, navigate]
+    [currentKeyIndex, navigate, gameStarted]
   );
 
   // 2A) Key Press Listener
@@ -181,13 +189,21 @@ const Fight = () => {
             <li key={index} className="list-none">
               {/* Hide futures keys & show past keys resultats with BgColor */}
               <Key
-                icon={index <= currentKeyIndex ? direction : "hidden"}
+                icon={
+                  gameStarted && index <= currentKeyIndex ? direction : "hidden"
+                }
                 result={keyResults[index]}
               />
             </li>
           ))}
         </div>
       </div>
+
+      {!gameStarted && (
+        <div className="animate-arcade-blink absolute inset-0 z-30 flex items-center justify-center bg-black/70 text-3xl font-bold uppercase text-foreground">
+          Press Enter
+        </div>
+      )}
     </div>
   );
 };
