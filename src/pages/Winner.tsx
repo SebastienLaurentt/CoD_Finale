@@ -39,7 +39,7 @@ const Winner = () => {
       repeat: -1,
       yoyo: true,
       ease: "power1.inOut",
-      paused: true, // L'animation est créée mais ne démarre pas immédiatement
+      paused: true, 
     });
 
     if (isHovering) {
@@ -54,7 +54,7 @@ const Winner = () => {
     }
 
     return () => {
-      animation.kill(); // Nettoie l'animation lors du démontage du composant
+      animation.kill(); 
     };
   }, [isHovering]);
 
