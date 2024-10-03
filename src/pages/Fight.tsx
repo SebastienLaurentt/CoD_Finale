@@ -25,16 +25,19 @@ const randomKeys = Array(10)
 
 const Fight = () => {
   const navigate = useNavigate();
-  const [currentKeyIndex, setCurrentKeyIndex] = useState(0);
+
   const [greenPoints, setGreenPoints] = useState(0);
   const [redPoints, setRedPoints] = useState(0);
-  const [keyResults, setKeyResults] = useState<
-    ("success" | "failure" | "pending")[]
-  >(Array(randomKeys.length).fill("pending"));
+
   const [isArtisteHurt, setIsArtisteHurt] = useState(false);
   const [isBossHurt, setIsBossHurt] = useState(false);
   const [artisteMalus, setArtisteMalus] = useState({ show: false, key: 0 });
   const [bossMalus, setBossMalus] = useState({ show: false, key: 0 });
+
+  const [currentKeyIndex, setCurrentKeyIndex] = useState(0);
+  const [keyResults, setKeyResults] = useState<
+    ("success" | "failure" | "pending")[]
+  >(Array(randomKeys.length).fill("pending"));
 
   // 2) Key Press Handler and FeedBack
   const handleKeyPress = useCallback(
@@ -89,7 +92,10 @@ const Fight = () => {
         });
         animateHurt(setIsArtisteHurt);
         setArtisteMalus({ show: true, key: Date.now() });
-        setTimeout(() => setArtisteMalus({ show: false, key: Date.now() }), 1000);
+        setTimeout(
+          () => setArtisteMalus({ show: false, key: Date.now() }),
+          1000
+        );
       }
 
       setCurrentKeyIndex((prev) => prev + 1);
@@ -112,6 +118,7 @@ const Fight = () => {
         style={{ backgroundImage: "url('/src/assets/ArtisteBg.png')" }}
       />
       <div className="relative z-10">
+        {/* Points */}
         <ul className="mx-auto flex w-[1027px] flex-row items-center justify-between pt-[136px]">
           {[...Array(5)].map((_, index) => (
             <li key={`green-${index}`}>
@@ -127,6 +134,8 @@ const Fight = () => {
             </li>
           ))}
         </ul>
+
+        {/* Images */}
         <div className="relative mb-10 mt-20 flex flex-row justify-between px-8">
           <div className="relative">
             <img
@@ -165,6 +174,8 @@ const Fight = () => {
             )}
           </div>
         </div>
+
+        {/* Keys */}
         <div className="flex w-full flex-row justify-center gap-x-10">
           {randomKeys.map((direction, index) => (
             <li key={index} className="list-none">
