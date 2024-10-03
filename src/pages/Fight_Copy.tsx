@@ -23,7 +23,7 @@ const randomKeys = Array(10)
   .fill(null)
   .map(() => directions[Math.floor(Math.random() * directions.length)]);
 
-const Fight = () => {
+const FightCopy = () => {
   const navigate = useNavigate();
 
   const [gameStarted, setGameStarted] = useState(false);
@@ -208,4 +208,4 @@ const Fight = () => {
   );
 };
 
-export default Fight;
+export default FightCopy;

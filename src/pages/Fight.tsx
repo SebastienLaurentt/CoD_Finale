@@ -55,8 +55,8 @@ const Fight = () => {
       if (isCorrect) {
         setGreenPoints((prev) => {
           const newPoints = prev + 1;
-          if (newPoints === 5) {
-            setTimeout(() => navigate("/winner"), 500);
+          if (newPoints === 6) {
+            setTimeout(() => navigate("/winner"));
           }
           return newPoints;
         });
