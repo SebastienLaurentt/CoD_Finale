@@ -3,9 +3,13 @@ import LinkButton from "../components/LinkButton";
 
 const Home = () => {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       <LandingDeskCard />
-      <LinkButton to="/pick" ariaLabel="Cliquer pour commencer la partie" className="mt-[73px]" >
+      <LinkButton
+        to="/pick"
+        ariaLabel="Cliquer pour commencer la partie"
+        className="absolute bottom-[47px]"
+      >
         Start the Game
       </LinkButton>
     </div>

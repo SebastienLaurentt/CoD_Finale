@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
+import ArtisteBg from "../assets/ArtisteBg.webp";
 import ArtisteFight from "../assets/ArtisteFight.svg";
 import ArtisteFightHurt from "../assets/ArtisteFightHurt.svg";
 import BossFight from "../assets/BossFight.svg";
@@ -10,7 +11,6 @@ import MalusImage from "../assets/Malus.svg";
 import Key from "../components/Key";
 import Point from "../components/Point";
 import { animateHurt } from "../lib/animateHurt";
-import ArtisteBg from "../assets/ArtisteBg.webp";
 
 // 1) Define the directions and generate random keys
 const directions: ("left" | "up" | "down" | "right")[] = [
@@ -169,9 +169,9 @@ const Fight = () => {
         className="absolute inset-0 bg-cover opacity-20"
         style={{ backgroundImage: `url(${ArtisteBg})` }}
       />
-      <div className="relative z-10">
+      <div className="relative z-10 flex h-full flex-col justify-around pb-10 pt-28">
         {/* Points */}
-        <ul className="mx-auto flex w-[1027px] flex-row items-center justify-between pt-[136px]">
+        <ul className="mx-auto flex w-[1027px] flex-row items-center justify-between">
           {[...Array(5)].map((_, index) => (
             <li key={`green-${index}`}>
               <Point color={index < greenPoints ? "green" : "gray"} />

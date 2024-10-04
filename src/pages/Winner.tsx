@@ -39,7 +39,7 @@ const Winner = () => {
       repeat: -1,
       yoyo: true,
       ease: "power1.inOut",
-      paused: true, 
+      paused: true,
     });
 
     if (isHovering) {
@@ -54,7 +54,7 @@ const Winner = () => {
     }
 
     return () => {
-      animation.kill(); 
+      animation.kill();
     };
   }, [isHovering]);
 
@@ -63,7 +63,7 @@ const Winner = () => {
   };
 
   return (
-    <div className="flex flex-col items-center ">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       <div ref={winnerCardRef} className="opacity-0">
         <WinnerCard
           artisteRef={artisteRef}
@@ -71,7 +71,12 @@ const Winner = () => {
         />
       </div>
 
-      <LinkButton ref={buttonRef} to="/pick" ariaLabel="Cliquer ici pour recommencer une partie" className="mx-auto mt-[73px]">
+      <LinkButton
+        ref={buttonRef}
+        to="/pick"
+        ariaLabel="Cliquer ici pour recommencer une partie"
+        className="absolute bottom-[47px]"
+      >
         Rejouer ?
       </LinkButton>
     </div>

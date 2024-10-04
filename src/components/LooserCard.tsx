@@ -7,7 +7,7 @@ import Cursor from "./Cursor";
 
 const LooserCard = () => {
   return (
-    <div className="relative mx-auto mt-[42px] h-[631px] w-[1023px]">
+    <div className="relative mx-auto h-[631px] w-[1023px]">
       <div className="relative flex size-full flex-col overflow-hidden rounded-[60px] bg-primary pl-[86px] pt-12 text-primary-foreground">
         <span className="text-xs font-medium uppercase leading-[12px]">
           /GRANDGAGNANT
@@ -62,7 +62,7 @@ const LooserCard = () => {
         bgColor="#F28164"
         borderColor="#D46F55"
         rotation={-16}
-        classname="absolute left-[1000px] top-[80px]"
+        classname="absolute left-[1000px] top-[70px]"
         position="right-top"
       />
       <Cursor

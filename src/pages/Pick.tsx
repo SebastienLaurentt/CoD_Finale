@@ -12,7 +12,7 @@ const Pick = () => {
   };
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex min-h-screen flex-col items-center justify-center">
       <ChampionPick
         selectedCardIndex={selectedCardIndex}
         onCardSelect={handleCardSelect}
@@ -20,7 +20,7 @@ const Pick = () => {
       <LinkButton
         to="/fight"
         ariaLabel="Cliquer ici pour commencer la partie après avoir sélectionné un champion"
-        className="mt-[73px]"
+        className="absolute bottom-[47px]"
         disabled={selectedCardIndex === null}
       >
         Select Champion

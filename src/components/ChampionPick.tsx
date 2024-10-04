@@ -13,7 +13,7 @@ interface ChampionPickProps {
 
 const ChampionPick: React.FC<ChampionPickProps> = ({ selectedCardIndex, onCardSelect }) => {
   return (
-    <div className="relative mt-[52px] h-[600px] w-[1130.26px]">
+    <div className="relative  h-[600px] w-[1130.26px]">
       <div className="flex flex-row gap-x-[16.13px]">
         {categoryCardData.map((cardData, index) => (
           <CategoryCard

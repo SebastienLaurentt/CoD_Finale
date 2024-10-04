@@ -13,7 +13,7 @@ interface WinnerCardProps {
 
 const WinnerCard: React.FC<WinnerCardProps> = ({ artisteRef, onArtisteHover }) => {
   return (
-    <div className="relative mx-auto mt-[42px] h-[631px] w-[1023px]">
+    <div className="relative mx-auto  h-[631px] w-[1023px]">
       <div className="relative flex size-full flex-col overflow-hidden rounded-[60px] bg-primary pl-[86px] pt-12 text-primary-foreground">
         <span className="text-xs font-medium uppercase leading-[12px]">
           /GRANDGAGNANT

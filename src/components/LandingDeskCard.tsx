@@ -9,7 +9,7 @@ import Cursor from "./Cursor";
 
 const LandingDeskCard = () => {
   return (
-    <div className="relative mx-auto mt-[42px] flex h-[631px] w-[1023px] flex-col rounded-[60px] bg-primary pl-[86px] pt-12 text-primary-foreground">
+    <div className="relative mx-auto  flex h-[631px] w-[1023px] flex-col rounded-[60px] bg-primary pl-[86px] pt-12 text-primary-foreground">
       <span className="text-xs font-medium uppercase leading-[12px]">
         / règlesdujeu
       </span>
