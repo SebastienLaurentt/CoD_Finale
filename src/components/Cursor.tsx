@@ -6,8 +6,7 @@ interface CursorProps {
   bgColor: string;
   borderColor: string;
   classname?: string;
-  rotation?: number; // Nouvelle prop pour la rotation
-  // Nouvelle prop pour la position du coin arrondi et du curseur
+  rotation?: number; 
   position: 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
 }
 
@@ -18,9 +17,8 @@ const Cursor = ({
   borderColor,
   classname,
   rotation = 0,
-  position = 'left-top', // Valeur par défaut
+  position = 'left-top', 
 }: CursorProps) => {
-  // Fonction pour déterminer la classe de border-radius
   const getBorderRadiusClass = () => {
     switch (position) {
       case 'left-bottom':
@@ -34,7 +32,6 @@ const Cursor = ({
     }
   };
 
-  // Fonction pour déterminer la position du curseur
   const getCursorPosition = () => {
     switch (position) {
       case 'left-bottom':
@@ -48,7 +45,7 @@ const Cursor = ({
     }
   };
 
-  // Fonction pour déterminer la rotation du curseur
+
   const getCursorRotation = () => {
     switch (position) {
       case 'left-bottom':

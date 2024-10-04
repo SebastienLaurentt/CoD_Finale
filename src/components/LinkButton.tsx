@@ -27,6 +27,7 @@ interface LinkButtonProps extends VariantProps<typeof buttonVariants> {
   children: React.ReactNode;
   className?: string;
   disabled?: boolean;
+  ariaLabel: string; 
 }
 
 const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(({
@@ -35,6 +36,7 @@ const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(({
   variant,
   className = "",
   disabled = false,
+  ariaLabel,
 }, ref) => {
   return (
     <Link
@@ -47,12 +49,12 @@ const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(({
           e.preventDefault();
         }
       }}
+      aria-label={ariaLabel} 
     >
       {children}
     </Link>
   );
 });
 
-LinkButton.displayName = "LinkButton";
 
 export default LinkButton;

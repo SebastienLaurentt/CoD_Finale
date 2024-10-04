@@ -19,6 +19,7 @@ const Pick = () => {
       />
       <LinkButton
         to="/fight"
+        ariaLabel="Cliquer ici pour commencer la partie après avoir sélectionné un champion"
         className="mt-[73px]"
         disabled={selectedCardIndex === null}
       >

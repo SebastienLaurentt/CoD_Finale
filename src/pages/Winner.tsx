@@ -71,7 +71,7 @@ const Winner = () => {
         />
       </div>
 
-      <LinkButton ref={buttonRef} to="/pick" className="mx-auto mt-[73px]">
+      <LinkButton ref={buttonRef} to="/pick" ariaLabel="Cliquer ici pour recommencer une partie" className="mx-auto mt-[73px]">
         Rejouer ?
       </LinkButton>
     </div>

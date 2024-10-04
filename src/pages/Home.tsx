@@ -5,7 +5,7 @@ const Home = () => {
   return (
     <div className="flex flex-col items-center">
       <LandingDeskCard />
-      <LinkButton to="/pick" className="mt-[73px]" >
+      <LinkButton to="/pick" ariaLabel="Cliquer pour commencer la partie" className="mt-[73px]" >
         Start the Game
       </LinkButton>
     </div>

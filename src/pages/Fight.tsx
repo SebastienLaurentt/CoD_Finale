@@ -177,7 +177,10 @@ const Fight = () => {
             </li>
           ))}
           <li>
-            <img src={FightLogo} alt="Fight Logo" />
+            <img
+              src={FightLogo}
+              alt="Fight Logo représentant deux épées qui se croisent"
+            />
           </li>
           {[...Array(5)].map((_, index) => (
             <li key={`red-${index}`}>
@@ -201,7 +204,7 @@ const Fight = () => {
               <img
                 key={artisteMalus.key}
                 src={MalusImage}
-                alt="Malus"
+                alt="Malus qui apparait sur l'artiste si l'utilisateur se trompe de touche"
                 className="animate-malus absolute right-0 top-0"
               />
             )}
@@ -219,7 +222,7 @@ const Fight = () => {
               <img
                 key={bossMalus.key}
                 src={MalusImage}
-                alt="Malus"
+                alt="Malus qui apparait sur le boss si l'utilisateur appuie sur la bonne touche"
                 className="animate-malus absolute left-0 top-0"
               />
             )}
