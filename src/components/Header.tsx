@@ -28,9 +28,9 @@ const Header = () => {
     <header className={headerClasses}>
       <div className="relative mx-auto flex w-[366px] flex-row items-center justify-between 2xl:w-[1376px]">
         <FinaleLogo />
-        <span className="absolute w-full text-center text-xs font-bold text-foreground">
+        <h1 className="absolute w-full text-center text-xs font-bold text-foreground">
           {getHeaderText()}
-        </span>
+        </h1>
         <img src={SwitchOnLogo} alt="Logo de Clash of Dev dans un toogle" />
       </div>
     </header>
