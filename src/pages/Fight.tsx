@@ -10,6 +10,7 @@ import MalusImage from "../assets/Malus.svg";
 import Key from "../components/Key";
 import Point from "../components/Point";
 import { animateHurt } from "../lib/animateHurt";
+import ArtisteBg from "../assets/ArtisteBg.webp";
 
 // 1) Define the directions and generate random keys
 const directions: ("left" | "up" | "down" | "right")[] = [
@@ -166,7 +167,7 @@ const Fight = () => {
     <div className="relative h-screen">
       <div
         className="absolute inset-0 bg-cover opacity-20"
-        style={{ backgroundImage: "url('/src/assets/ArtisteBg.webp')" }}
+        style={{ backgroundImage: `url(${ArtisteBg})` }}
       />
       <div className="relative z-10">
         {/* Points */}
