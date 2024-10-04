@@ -166,7 +166,7 @@ const Fight = () => {
     <div className="relative h-screen">
       <div
         className="absolute inset-0 bg-cover opacity-20"
-        style={{ backgroundImage: "url('/src/assets/ArtisteBg.png')" }}
+        style={{ backgroundImage: "url('/src/assets/ArtisteBg.webp')" }}
       />
       <div className="relative z-10">
         {/* Points */}
