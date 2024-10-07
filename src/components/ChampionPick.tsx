@@ -38,7 +38,7 @@ const ChampionPick: React.FC<ChampionPickProps> = ({ selectedCardIndex, onCardSe
       <img
         src={PinkCodLogo}
         alt="Clash of Dev Logo version rose"
-        className="absolute -left-8 -top-20"
+        className="absolute -left-8 -top-24"
       />
 
       <Cursor
@@ -47,7 +47,7 @@ const ChampionPick: React.FC<ChampionPickProps> = ({ selectedCardIndex, onCardSe
         bgColor="#F28164"
         borderColor="#D46F55"
         rotation={-16}
-        classname="absolute left-[1100px] top-[100px]"
+        classname="absolute left-[1100px] top-[100px] animate-cursor1"
         position="right-top"
       />
       <Cursor
@@ -56,7 +56,7 @@ const ChampionPick: React.FC<ChampionPickProps> = ({ selectedCardIndex, onCardSe
         bgColor="#F588B9"
         borderColor="#D6699A"
         rotation={-16}
-        classname="absolute left-[110px] top-[40px]"
+        classname="absolute left-[110px] top-[40px] animate-cursor3"
         position="right-top"
       />
       <Cursor
@@ -65,7 +65,7 @@ const ChampionPick: React.FC<ChampionPickProps> = ({ selectedCardIndex, onCardSe
         bgColor="#6B93C0"
         borderColor="#6B93C0"
         rotation={-2}
-        classname="absolute left-[720px] top-[-720px]"
+        classname="absolute left-[720px] top-[-720px] animate-cursor2"
         position="left-bottom"
       />
 

@@ -31,7 +31,6 @@
 }
 
 
-
 @keyframes arcade-blink {
   0%, 100% {
     opacity: 1;
@@ -51,6 +50,88 @@
   animation: arcade-blink 2s ease-in-out infinite;
 }
 
-.animate-arcade-blink {
-  animation: arcade-blink 2s ease-in-out infinite;
+
+@keyframes moveCursor1 {
+  0%, 100% {
+    translate: 0 0;
+  }
+  15% {
+    translate: 30px -8px;
+  }
+  30% {
+    translate: 40px 3px;
+  }
+  45% {
+    translate: 30px 10px;
+  }
+  50%, 55% {
+    translate: 30px 10px;
+  }
+  70% {
+    translate: -20px 8px;
+  }
+  85% {
+    translate: -30px -3px;
+  }
+  95% {
+    translate: -15px -2px;
+  }
 }
+
+@keyframes moveCursor2 {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+  20% {
+    translate: -35px 25px;
+  }
+  35% {
+    translate: -20px -30px;
+  }
+  40%,
+  45% {
+    translate: -20px -30px;
+  } /* Pause */
+  60% {
+    translate: 30px -15px;
+  }
+  75% {
+    translate: 40px 20px;
+  }
+  90% {
+    translate: 20px 30px;
+  }
+  95% {
+    translate: 10px 15px;
+  }
+}
+
+.animate-cursor1 {
+  animation: moveCursor1 12s ease-in-out infinite;
+}
+
+.animate-cursor2 {
+  animation: moveCursor2 12s ease-in-out infinite;
+}
+
+
+@keyframes moveCursor3 {
+  0%, 100% {
+    translate: 0 0;
+  }
+  25% {
+    translate: 30px -40px;
+  }
+  50% {
+    translate: 60px 0;
+  }
+  75% {
+    translate: 30px 40px;
+  }
+}
+
+.animate-cursor3 {
+  animation: moveCursor3 12s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+

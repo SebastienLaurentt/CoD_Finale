@@ -13,7 +13,7 @@ const LandingMobile = () => {
           bgColor="#F28164"
           borderColor="#D46F55"
           rotation={-16}
-          classname="mt-14"
+          classname="mt-14 animate-cursor1"
           position="right-top"
         />
 

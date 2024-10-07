@@ -43,7 +43,10 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
   const mainClasses = `
     relative h-[600px] cursor-pointer rounded-[60px] ${bgColor} flex flex-col overflow-hidden text-xs leading-[20px]
     ${isMobile ? '' : 'md:h-[650px] lg:h-[820px] xl:h-[650px] 2xl:h-auto'}
-    transition-opacity duration-300 ${isSelected ? 'opacity-100' : 'opacity-60 hover:opacity-100'}
+    transition-all duration-700
+    ${isSelected 
+      ? 'opacity-100 shadow-[0_0_20px_rgba(255,255,255,0.25)]' 
+      : 'opacity-60 hover:opacity-100 hover:shadow-[0_0_20px_rgba(255,255,255,0.25)]'}
   `;
 
   const headerClasses = isMobile
