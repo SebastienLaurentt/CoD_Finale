@@ -62,7 +62,7 @@ const LooserCard = () => {
         bgColor="#F28164"
         borderColor="#D46F55"
         rotation={-16}
-        classname="absolute left-[1000px] top-[70px]"
+        classname="absolute left-[1000px] top-[70px] animate-cursor1"
         position="right-top"
       />
       <Cursor
@@ -71,7 +71,7 @@ const LooserCard = () => {
         bgColor="#F588B9"
         borderColor="#D6699A"
         rotation={-16}
-        classname="absolute left-[-160px] top-[-30px]"
+        classname="absolute left-[-160px] top-[-30px] animate-cursor1"
         position="right-top"
       />
       <Cursor
@@ -80,7 +80,7 @@ const LooserCard = () => {
         bgColor="#6B93C0"
         borderColor="#6B93C0"
         rotation={-16}
-        classname="absolute left-[1015px] top-[-625px]"
+        classname="absolute left-[1015px] top-[-625px] animate-cursor3"
         position="left-top"
       />
     </div>
