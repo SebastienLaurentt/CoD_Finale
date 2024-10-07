@@ -19,7 +19,6 @@ const ChampionPick: React.FC<ChampionPickProps> = ({ selectedCardIndex, onCardSe
           <CategoryCard
             key={index}
             {...cardData}
-            isMobile={true}
             isSelected={index === selectedCardIndex}
             onSelect={() => onCardSelect(index)}
           />
