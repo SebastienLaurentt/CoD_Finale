@@ -78,6 +78,10 @@
   }
 }
 
+.animate-cursor1 {
+  animation: moveCursor1 12s ease-in-out infinite;
+}
+
 @keyframes moveCursor2 {
   0%,
   100% {
@@ -107,9 +111,6 @@
   }
 }
 
-.animate-cursor1 {
-  animation: moveCursor1 12s ease-in-out infinite;
-}
 
 .animate-cursor2 {
   animation: moveCursor2 12s ease-in-out infinite;

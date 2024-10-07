@@ -39,17 +39,21 @@ const Fight = () => {
 
   const [currentKeyIndex, setCurrentKeyIndex] = useState(0);
   const [keyResults, setKeyResults] = useState<
-    ("success" | "failure" | "pending")[]
+    ("success" | "failure" | "pending" | "timeout")[]
   >(Array(randomKeys.length).fill("pending"));
 
   const [timer, setTimer] = useState<number | null>(null);
 
   const updatePointsAndFeedback = useCallback(
-    (isCorrect: boolean, index: number) => {
+    (isCorrect: boolean, index: number, isTimeout: boolean = false) => {
       // Update the key results
       setKeyResults((prev) => {
         const newResults = [...prev];
-        newResults[index] = isCorrect ? "success" : "failure";
+        newResults[index] = isCorrect
+          ? "success"
+          : isTimeout
+          ? "timeout"
+          : "failure";
         return newResults;
       });
 
@@ -85,8 +89,8 @@ const Fight = () => {
 
   const startTimer = useCallback(() => {
     const newTimer = setTimeout(() => {
-      // Handle timeout (treat as wrong key press)
-      updatePointsAndFeedback(false, currentKeyIndex);
+      // Handle timeout (treat as wrong key press, but with timeout style)
+      updatePointsAndFeedback(false, currentKeyIndex, true);
       setCurrentKeyIndex((prev) => prev + 1);
       startTimer(); // Start a new timer for the next key
     }, 2000);
