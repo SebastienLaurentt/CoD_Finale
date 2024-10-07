@@ -11,7 +11,7 @@ function App() {
   return (
     <>
       <Header />
-      <main>
+      <main className="px-2 2xl:px-0">
         <div className="hidden 2xl:block">
           <Routes>
             <Route path="/" element={<Home />} />

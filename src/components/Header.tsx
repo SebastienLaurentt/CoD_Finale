@@ -18,8 +18,8 @@ const Header = () => {
   };
 
   return (
-    <header className="w-full pb-8 pt-[40px] 2xl:absolute 2xl:left-0 2xl:top-0 2xl:z-20 2xl:pt-5">
-      <div className="relative mx-auto flex w-[366px] flex-row items-center justify-between 2xl:w-[1376px]">
+    <header className="w-full px-2 pb-8 pt-[40px] 2xl:absolute 2xl:left-0 2xl:top-0 2xl:z-20 2xl:pt-5">
+      <div className="relative mx-auto flex max-w-[366px] flex-row items-center justify-between 2xl:max-w-[1376px]">
         <FinaleLogo />
         <h1 className="absolute w-full text-center text-xs font-bold text-foreground">
           {getHeaderText()}
