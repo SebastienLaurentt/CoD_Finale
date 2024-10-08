@@ -1,4 +1,6 @@
 import { MoveDown, MoveLeft, MoveRight, MoveUp, X } from "lucide-react";
+import { useEffect, useRef } from 'react';
+import gsap from 'gsap';
 
 type IconType = "up" | "down" | "left" | "right" | "hidden";
 type ResultType = "success" | "failure" | "pending" | "timeout";
@@ -15,7 +17,39 @@ const iconComponents = {
   right: MoveRight,
 };
 
+const ConfettiDot = ({ className }: { className: string }) => (
+  <span className={`absolute rounded-full border-2 border-white bg-[#ECFFCE] ${className}`} />
+);
+
+const confettiDots = [
+  "-left-5 -top-4 size-4",
+  "-top-6 left-2 size-[10px]",
+  "-left-1 -top-7 size-[3px]",
+  "-right-4 top-0 size-[10px]",
+  "-top-3 right-0 size-[5px]",
+  "-bottom-2 -right-1 size-[3px]",
+  "-bottom-4 right-1 size-[5px]",
+];
+
 const Key = ({ icon, result }: KeyProps) => {
+  const confettiRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (result === "success" && confettiRef.current) {
+      const dots = confettiRef.current.children;
+      gsap.fromTo(dots, 
+        { scale: 0, opacity: 0 },
+        { 
+          scale: 1, 
+          opacity: 1, 
+          duration: 0.5, 
+          stagger: 0.05,
+          ease: "back.out(1.7)"
+        }
+      );
+    }
+  }, [result]);
+
   const getBgColor = () => {
     switch (result) {
       case "success":
@@ -52,21 +86,11 @@ const Key = ({ icon, result }: KeyProps) => {
       className={`relative inline-flex size-[106px] items-center justify-center rounded-[10px] ${getBgColor()} ${getBorderStyle()}`}
     >
       {result === "success" && (
-        <>
-          <div>
-            <span className="absolute -left-5 -top-4 size-4 rounded-full border-2 border-white bg-[#ECFFCE]" />
-            <span className="absolute -top-6 left-2 size-[10px] rounded-full border-2 border-white bg-[#ECFFCE]" />
-            <span className="absolute -left-1 -top-7 size-[3px] rounded-full border-2 border-white bg-[#ECFFCE]" />
-          </div>
-          <div>
-            <span className="absolute -right-4 top-0 size-[10px] rounded-full border-2 border-white bg-[#ECFFCE]" />
-            <span className="absolute -top-3 right-0 size-[5px] rounded-full border-2 border-white bg-[#ECFFCE]" />
-          </div>
-          <div>
-            <span className="absolute -bottom-2 -right-1 size-[3px] rounded-full border-2 border-white bg-[#ECFFCE]" />
-            <span className="absolute -bottom-4 right-1 size-[5px] rounded-full border-2 border-white bg-[#ECFFCE]" />
-          </div>
-        </>
+        <div ref={confettiRef}>
+          {confettiDots.map((className, index) => (
+            <ConfettiDot key={index} className={className} />
+          ))}
+        </div>
       )}
       <IconComponent
         className={result === "timeout" ? "text-[#D46F55]" : "text-[#9B9B9B]"}
