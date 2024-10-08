@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import SwitchOnLogo from "../assets/SwitchOnLogo.svg";
+import SwitchOnLogo from "../assets/Logos/SwitchOnLogo.svg";
 import FinaleLogo from "./FinalLogo";
 
 const HomeHeader = () => {

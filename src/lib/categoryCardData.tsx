@@ -1,15 +1,15 @@
-import ArtisteImg from "../assets/artisteImg.webp";
-import BatisseurImg from "../assets/batisseurImg.webp";
-import BlueLogoBig from "../assets/blueLogoBig.svg";
-import BossImg from "../assets/bossImg.webp";
-import ChercheurImg from "../assets/chercheurImg.webp";
-import GreenLogoBig from "../assets/greenLogoBig.svg";
-import MaitreImg from "../assets/maitreImg.webp";
-import PinkLogoBig from "../assets/pinkLogoBig.svg";
-import PurpleLogo from "../assets/purpleLogo.svg";
-import RedLogo from "../assets/redLogo.svg";
-import SecretImg from "../assets/secretImg.webp";
-import YellowLogo from "../assets/yellowLogo.svg";
+import ArtisteImg from "../assets/Images/artisteImg.webp";
+import BatisseurImg from "../assets/Images/batisseurImg.webp";
+import BlueLogoBig from "../assets/Logos/blueLogoBig.svg";
+import BossImg from "../assets/Images/bossImg.webp";
+import ChercheurImg from "../assets/Images/chercheurImg.webp";
+import GreenLogoBig from "../assets/Logos/greenLogoBig.svg";
+import MaitreImg from "../assets/Images/maitreImg.webp";
+import PinkLogoBig from "../assets/Logos/pinkLogoBig.svg";
+import PurpleLogo from "../assets/Logos/purpleLogo.svg";
+import RedLogo from "../assets/Logos/redLogo.svg";
+import SecretImg from "../assets/Images/secretImg.webp";
+import YellowLogo from "../assets/Logos/yellowLogo.svg";
 
 export interface Cursor {
   name: string;

@@ -1,4 +1,4 @@
-import BlueIcon from "../assets/BlueIcon.svg";
+import BlueIcon from "../assets/Logos/BlueIcon.svg";
 import Cursor from "./Cursor";
 import MobileCard from "./MobileCard";
 

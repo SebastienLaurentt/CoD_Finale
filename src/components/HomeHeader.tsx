@@ -1,6 +1,6 @@
 
 import PiscineLogo from "./PiscineLogo";
-import SwitchLogo from "../assets/switchLogo.svg";
+import SwitchLogo from "../assets/Logos/switchLogo.svg";
 import NumberTicker from "./ui/NumberTicker";
 
 interface HeaderProps {

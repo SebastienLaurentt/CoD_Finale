@@ -1,9 +1,9 @@
 import { MousePointer2 } from "lucide-react";
 import React, { memo, useCallback, useEffect, useRef, useState } from "react";
-import BlankCardHero from "../../assets/blankCardHero.svg";
-import ClashVector from "../../assets/clashVector2.svg";
-import CodVector from "../../assets/codVector.svg";
-import StrongerVector from "../../assets/strongerVector.svg";
+import BlankCardHero from "../../assets/Images/blankCardHero.svg";
+import ClashVector from "../../assets/Logos/clashVector2.svg";
+import CodVector from "../../assets/Logos/codVector.svg";
+import StrongerVector from "../../assets/Logos/strongerVector.svg";
 import Cursor from "../Cursor";
 import SparklesText from "../ui/Sparkle";
 

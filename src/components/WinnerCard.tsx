@@ -1,9 +1,9 @@
 import React, { RefObject } from 'react';
-import ArtisteWinner from "../assets/ArtisteWinner.svg";
-import BlueIcon from "../assets/BlueIcon.svg";
-import CoDLogo from "../assets/CoDLogo.svg";
-import PinkCodLogo from "../assets/PinkCodLogo.svg";
-import SurBoostedLoser from "../assets/SurBoostedLoser.svg";
+import ArtisteWinner from "../assets/Characters/ArtisteWinner.svg";
+import BlueIcon from "../assets/Logos/BlueIcon.svg";
+import CoDLogo from "../assets/Logos/CoDLogo.svg";
+import PinkCodLogo from "../assets/Logos/PinkCodLogo.svg";
+import SurBoostedLoser from "../assets/Characters/SurBoostedLoser.svg";
 import Cursor from "./Cursor";
 
 interface WinnerCardProps {

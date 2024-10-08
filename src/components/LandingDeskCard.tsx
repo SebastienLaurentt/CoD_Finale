@@ -1,12 +1,12 @@
 import gsap from "gsap";
 import { useEffect } from "react";
-import BlueIcon from "../assets/BlueIcon.svg";
-import CoDLogo from "../assets/CoDLogo.svg";
-import GreenIcon from "../assets/GreenIcon.svg";
-import KeyRight from "../assets/KeyRight.svg";
-import KeyUp from "../assets/KeyUp.svg";
-import PinkCodLogo from "../assets/PinkCodLogo.svg";
-import SurBoosted from "../assets/SurBoosted.svg";
+import BlueIcon from "../assets/Logos/BlueIcon.svg";
+import CoDLogo from "../assets/Logos/CoDLogo.svg";
+import GreenIcon from "../assets/Logos/GreenIcon.svg";
+import KeyRight from "../assets/Logos/KeyRight.svg";
+import KeyUp from "../assets/Logos/KeyUp.svg";
+import PinkCodLogo from "../assets/Logos/PinkCodLogo.svg";
+import SurBoosted from "../assets/Characters/SurBoosted.svg";
 import Cursor from "./Cursor";
 
 const LandingDeskCard = () => {

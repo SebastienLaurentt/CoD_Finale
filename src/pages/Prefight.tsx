@@ -2,9 +2,9 @@ import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import ArtisteBg from "../assets/ArtisteBg.webp";
-import ArtisteFight from "../assets/ArtisteFight.svg";
-import BossFight from "../assets/BossFight.svg";
+import ArtisteBg from "../assets/Images/ArtisteBg.webp";
+import ArtisteFight from "../assets/Characters/ArtisteFight.svg";
+import BossFight from "../assets/Characters/BossFight.svg";
 
 gsap.registerPlugin(TextPlugin);
 
@@ -14,7 +14,6 @@ const Prefight = () => {
   useEffect(() => {
     const timeline = gsap.timeline({ delay: 1 });
 
-    // Ajout d'une animation pour faire apparaître l'artiste
     timeline.to("#artiste", {
       opacity: 1,
       duration: 0.5,

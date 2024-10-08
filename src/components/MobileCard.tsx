@@ -1,4 +1,4 @@
-import CoDLogo from "../assets/CoDLogo.svg";
+import CoDLogo from "../assets/Logos/CoDLogo.svg";
 import LinkButton from "./LinkButton";
 
 const MobileCard = () => {

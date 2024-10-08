@@ -1,6 +1,6 @@
-import BlueIcon from "../assets/BlueIcon.svg";
-import GreenIcon from "../assets/GreenIcon.svg";
-import PinkCodLogo from "../assets/PinkCodLogo.svg";
+import BlueIcon from "../assets/Logos/BlueIcon.svg";
+import GreenIcon from "../assets/Logos/GreenIcon.svg";
+import PinkCodLogo from "../assets/Logos/PinkCodLogo.svg";
 import categoryCardData, { CategoryCardData } from "../lib/categoryCardData";
 import CategoryCard from "./CategoryCard";
 import Cursor from "./Cursor";

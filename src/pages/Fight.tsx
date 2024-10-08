@@ -1,13 +1,13 @@
 import gsap from "gsap";
 import { useCallback, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ArtisteBg from "../assets/ArtisteBg.webp";
-import ArtisteFight from "../assets/ArtisteFight.svg";
-import ArtisteFightHurt from "../assets/ArtisteFightHurt.svg";
-import BossFight from "../assets/BossFight.svg";
-import BossFightHurt from "../assets/BossFightHurt.svg";
-import FightLogo from "../assets/FightLogo.svg";
-import MalusImage from "../assets/Malus.svg";
+import ArtisteBg from "../assets/Images/ArtisteBg.webp";
+import ArtisteFight from "../assets/Characters/ArtisteFight.svg";
+import ArtisteFightHurt from "../assets/Characters/ArtisteFightHurt.svg";
+import BossFight from "../assets/Characters/BossFight.svg";
+import BossFightHurt from "../assets/Characters/BossFightHurt.svg";
+import FightLogo from "../assets/Logos/FightLogo.svg";
+import MalusImage from "../assets/Logos/Malus.svg";
 import Key from "../components/Key";
 import Point from "../components/Point";
 import { animateHurt } from "../lib/animateHurt";
@@ -181,7 +181,7 @@ const Fight = () => {
       .set("#press-enter", { autoAlpha: 0 })
 
       .to("#black-screen", { duration: 0.5 })
-      
+
       // Faire disparaître l'écran noir vers le bas
       .to("#black-screen", {
         y: "100%",

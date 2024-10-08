@@ -1,7 +1,7 @@
-import BlueLogo from "../assets/blueLogo.svg";
-import GreenLogo from "../assets/greenLogo.svg";
-import PinkLogo from "../assets/pinkLogo.svg";
-import WhiteLogo from "../assets/whiteLogo.svg";
+import BlueLogo from "../assets/Logos/blueLogo.svg";
+import GreenLogo from "../assets/Logos/greenLogo.svg";
+import PinkLogo from "../assets/Logos/pinkLogo.svg";
+import WhiteLogo from "../assets/Logos/whiteLogo.svg";
 import LinkButton from "./LinkButton";
 
 const ClickMeCard = () => {
