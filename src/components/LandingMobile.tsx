@@ -4,7 +4,7 @@ import MobileCard from "./MobileCard";
 
 const LandingMobile = () => {
   return (
-    <div className="mx-auto max-w-[366px] pb-10 2xl:hidden">
+    <div className="mx-auto max-w-[366px] pb-10 xl:hidden">
       <MobileCard />
       <div className="mx-auto mt-4 flex  flex-row justify-between pl-6 pr-10">
         <Cursor
