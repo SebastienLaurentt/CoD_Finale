@@ -5,6 +5,7 @@ import Fight from "./pages/Fight";
 import Home from "./pages/Home";
 import Loser from "./pages/Loser";
 import Pick from "./pages/Pick";
+import Prefight from "./pages/Prefight";
 import Winner from "./pages/Winner";
 
 function App() {
@@ -18,6 +19,9 @@ function App() {
           </Routes>
           <Routes>
             <Route path="/pick" element={<Pick />} />
+          </Routes>
+          <Routes>
+            <Route path="/prefight" element={<Prefight />} />
           </Routes>
           <Routes>
             <Route path="/fight" element={<Fight />} />

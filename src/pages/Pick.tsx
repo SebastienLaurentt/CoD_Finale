@@ -13,16 +13,13 @@ const Pick = () => {
   };
 
   useEffect(() => {
-    gsap.fromTo(
-      "#championCards",
-      { opacity: 0, scale: 0.8 },
-      { opacity: 1, scale: 1, duration: 1, delay: 0.5 }
-    );
-    gsap.fromTo(
-      "#championButton",
-      { opacity: 0 },
-      { opacity: 1, duration: 0.5, delay: 1 }
-    );
+    const timeline = gsap.timeline();
+
+    timeline
+      .set("#championCards", { autoAlpha: 0, scale: 0.8 })
+      .set("#championButton", { autoAlpha: 0 })
+      .to("#championCards", { autoAlpha: 1, scale: 1, duration: 1, delay: 0.5 })
+      .to("#championButton", { autoAlpha: 1, duration: 0.5 });
   }, []);
 
   return (
@@ -32,11 +29,11 @@ const Pick = () => {
         selectedCardIndex={selectedCardIndex}
         onCardSelect={handleCardSelect}
       />
-      <div id="championButton" className="flex flex-col items-center opacity-0">
+      <div id="championButton" className="flex flex-col items-center">
         <LinkButton
           to="/fight"
           ariaLabel="Cliquer ici pour commencer la partie après avoir sélectionné un champion"
-          className="absolute 2xl:bottom-[47px] xl:mt-1"
+          className="absolute xl:mt-1 2xl:bottom-[47px]"
           disabled={selectedCardIndex === null}
           variant="tertiary"
         >

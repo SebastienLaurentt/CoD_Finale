@@ -1,5 +1,5 @@
+import gsap from "gsap";
 import { useCallback, useEffect, useState } from "react";
-
 import { useNavigate } from "react-router-dom";
 import ArtisteBg from "../assets/ArtisteBg.webp";
 import ArtisteFight from "../assets/ArtisteFight.svg";
@@ -167,15 +167,51 @@ const Fight = () => {
     }
   }, [gameStarted, startTimer]);
 
+  useEffect(() => {
+    const timeline = gsap.timeline();
+
+    timeline
+      // Commencer avec un écran noir visible
+      .set("#black-screen", { y: "0%", autoAlpha: 1 })
+      .set("#fight-container", { autoAlpha: 1 })
+      .set("#background", { autoAlpha: 0.2 })
+      .set("#characters", { autoAlpha: 1 })
+      .set("#scores", { autoAlpha: 0 })
+      .set("#keys", { autoAlpha: 0 })
+      .set("#press-enter", { autoAlpha: 0 })
+
+      .to("#black-screen", { duration: 0.5 })
+      
+      // Faire disparaître l'écran noir vers le bas
+      .to("#black-screen", {
+        y: "100%",
+        duration: 1,
+        ease: "power2.inOut",
+      })
+
+      // Faire apparaître les scores
+      .to("#scores", { autoAlpha: 1, duration: 0.5 })
+
+      // Faire apparaître les touches
+      .to("#keys", { autoAlpha: 1, duration: 0.5 })
+
+      // Faire apparaître le "Press Enter"
+      .to("#press-enter", { autoAlpha: 1, duration: 0.5 });
+  }, []);
+
   return (
-    <div className="relative h-screen">
+    <div id="fight-container" className="relative h-screen">
       <div
+        id="background"
         className="absolute inset-0 bg-cover opacity-20"
         style={{ backgroundImage: `url(${ArtisteBg})` }}
       />
       <div className="relative z-10 flex h-full flex-col justify-around pb-10 pt-28">
         {/* Points */}
-        <ul className="mx-auto flex w-[1027px] flex-row items-center justify-between">
+        <ul
+          id="scores"
+          className="mx-auto flex w-[1027px] flex-row items-center justify-between"
+        >
           {[...Array(5)].map((_, index) => (
             <li key={`green-${index}`}>
               <Point color={index < greenPoints ? "green" : "gray"} />
@@ -195,7 +231,10 @@ const Fight = () => {
         </ul>
 
         {/* Images */}
-        <div className="relative flex flex-row justify-between px-8 2xl:mb-10 2xl:mt-20">
+        <div
+          id="characters"
+          className="relative flex flex-row justify-between px-8 2xl:mb-10 2xl:mt-20"
+        >
           <div className="relative">
             <img
               src={isArtisteHurt ? ArtisteFightHurt : ArtisteFight}
@@ -235,7 +274,7 @@ const Fight = () => {
         </div>
 
         {/* Keys */}
-        <div className="flex w-full flex-row justify-center gap-x-10">
+        <div id="keys" className="flex w-full flex-row justify-center gap-x-10">
           {randomKeys.map((direction, index) => (
             <li key={index} className="list-none">
               {/* Hide futures keys & show past keys resultats with BgColor */}
@@ -251,10 +290,16 @@ const Fight = () => {
       </div>
 
       {!gameStarted && (
-        <div className="animate-arcade-blink absolute inset-0 z-30 flex items-center justify-center bg-black/70 text-3xl font-bold uppercase text-foreground">
+        <div
+          id="press-enter"
+          className="animate-arcade-blink absolute inset-0 z-30 flex items-center justify-center bg-black/70 text-3xl font-bold uppercase text-foreground"
+        >
           Press Enter
         </div>
       )}
+
+      {/* Écran noir pour la transition */}
+      <div id="black-screen" className="absolute inset-0 z-50 bg-black"></div>
     </div>
   );
 };

@@ -24,6 +24,11 @@ const Header = () => {
     location.pathname === '/fight' ? 'xl:absolute' : '2xl:absolute'
   } xl:left-0 xl:top-0 xl:z-20 2xl:pt-5`;
 
+
+  if (location.pathname === '/prefight') {
+    return null;
+  }
+
   return (
     <header className={headerClasses}>
       <div className="relative mx-auto flex max-w-[366px] flex-row items-center justify-between xl:max-w-[900px] 2xl:max-w-[1376px]">

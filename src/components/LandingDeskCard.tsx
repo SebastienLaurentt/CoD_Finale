@@ -11,16 +11,12 @@ import Cursor from "./Cursor";
 
 const LandingDeskCard = () => {
   useEffect(() => {
-    gsap.fromTo(
-      "#keyUp",
-      { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 0.5, ease: "bounce.out" }
-    );
-    gsap.fromTo(
-      "#keyRight",
-      { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 0.5, ease: "bounce.out", delay: 0.2 }
-    );
+    const timeline = gsap.timeline();
+
+    timeline
+      .set("#keyUp, #keyRight", { autoAlpha: 0, y: -50 })
+      .to("#keyUp", { autoAlpha: 1, y: 0, duration: 0.5, ease: "bounce.out" })
+      .to("#keyRight", { autoAlpha: 1, y: 0, duration: 0.5, ease: "bounce.out" }, "-=0.3");
   }, []);
 
   return (
@@ -62,13 +58,13 @@ const LandingDeskCard = () => {
         id="keyUp"
         src={KeyUp}
         alt="Image représentant la touche directionnelle haute du clavier"
-        className="absolute left-[465px] top-[156.38px] z-10 opacity-0"
+        className="absolute left-[465px] top-[156.38px] z-10"
       />
       <img
         id="keyRight"
         src={KeyRight}
         alt="Image représentant la touche directionnelle droite du clavier"
-        className="absolute left-[546.75px] top-[102.38px] z-20 opacity-0"
+        className="absolute left-[546.75px] top-[102.38px] z-20"
       />
       <img
         src={SurBoosted}
