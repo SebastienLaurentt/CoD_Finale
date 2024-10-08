@@ -23,6 +23,7 @@ const buttonVariants = cva(
 );
 
 interface LinkButtonProps extends VariantProps<typeof buttonVariants> {
+  id?: string;
   to: string;
   children: React.ReactNode;
   className?: string;
@@ -32,13 +33,14 @@ interface LinkButtonProps extends VariantProps<typeof buttonVariants> {
 
 const LinkButton = forwardRef<HTMLAnchorElement, LinkButtonProps>(
   (
-    { to, children, variant, className = "", disabled = false, ariaLabel },
+    { id, to, children, variant, className = "", disabled = false, ariaLabel },
     ref
   ) => {
     return (
       <Link
         ref={ref}
         to={to}
+        id={id}
         role="button"
         className={buttonVariants({ variant, disabled, className })}
         onClick={(e) => {

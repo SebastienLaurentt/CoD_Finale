@@ -1,3 +1,5 @@
+import gsap from "gsap";
+import { useEffect } from "react";
 import BlueIcon from "../assets/BlueIcon.svg";
 import CoDLogo from "../assets/CoDLogo.svg";
 import GreenIcon from "../assets/GreenIcon.svg";
@@ -8,6 +10,19 @@ import SurBoosted from "../assets/SurBoosted.svg";
 import Cursor from "./Cursor";
 
 const LandingDeskCard = () => {
+  useEffect(() => {
+    gsap.fromTo(
+      "#keyUp",
+      { opacity: 0, y: -50 },
+      { opacity: 1, y: 0, duration: 0.5, ease: "bounce.out" }
+    );
+    gsap.fromTo(
+      "#keyRight",
+      { opacity: 0, y: -50 },
+      { opacity: 1, y: 0, duration: 0.5, ease: "bounce.out", delay: 0.2 }
+    );
+  }, []);
+
   return (
     <div className="relative mx-auto  flex h-[631px] w-[1023px] flex-col rounded-[60px] bg-primary pl-[86px] pt-12 text-primary-foreground">
       <span className="text-xs font-medium uppercase leading-[12px]">
@@ -44,14 +59,16 @@ const LandingDeskCard = () => {
         className="absolute -left-8 -top-8"
       />
       <img
+        id="keyUp"
         src={KeyUp}
         alt="Image représentant la touche directionnelle haute du clavier"
-        className="absolute left-[465px] top-[156.38px] z-10"
+        className="absolute left-[465px] top-[156.38px] z-10 opacity-0"
       />
       <img
+        id="keyRight"
         src={KeyRight}
         alt="Image représentant la touche directionnelle droite du clavier"
-        className="absolute left-[546.75px] top-[102.38px] z-20"
+        className="absolute left-[546.75px] top-[102.38px] z-20 opacity-0"
       />
       <img
         src={SurBoosted}

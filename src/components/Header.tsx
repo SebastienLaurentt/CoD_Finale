@@ -1,7 +1,10 @@
+import { useLocation } from 'react-router-dom';
 import SwitchOnLogo from "../assets/SwitchOnLogo.svg";
 import FinaleLogo from "./FinalLogo";
 
 const Header = () => {
+  const location = useLocation();
+
   const getHeaderText = () => {
     switch (location.pathname) {
       case "/":

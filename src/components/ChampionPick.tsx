@@ -1,4 +1,5 @@
-import React from "react";
+import gsap from "gsap";
+import { useEffect } from "react";
 import BlueIcon from "../assets/BlueIcon.svg";
 import GreenIcon from "../assets/GreenIcon.svg";
 import PinkCodLogo from "../assets/PinkCodLogo.svg";
@@ -7,13 +8,31 @@ import CategoryCard from "./CategoryCard";
 import Cursor from "./Cursor";
 
 interface ChampionPickProps {
+  id?: string;
   selectedCardIndex: number | null;
   onCardSelect: (index: number) => void;
 }
 
-const ChampionPick: React.FC<ChampionPickProps> = ({ selectedCardIndex, onCardSelect }) => {
+const ChampionPick = ({
+  id,
+  selectedCardIndex,
+  onCardSelect,
+}: ChampionPickProps) => {
+  useEffect(() => {
+    gsap.fromTo(
+      "#keyUp",
+      { opacity: 0, y: -50 },
+      { opacity: 1, y: 0, duration: 0.5, ease: "bounce.out" }
+    );
+    gsap.fromTo(
+      "#keyRight",
+      { opacity: 0, y: -50 },
+      { opacity: 1, y: 0, duration: 0.5, ease: "bounce.out", delay: 0.2 }
+    );
+  }, []);
+
   return (
-    <div className="relative  h-[600px] w-[1130.26px]">
+    <div id={id} className="relative h-[600px] w-[1130.26px] opacity-0">
       <div className="flex flex-row gap-x-[16.13px]">
         {categoryCardData.map((cardData, index) => (
           <CategoryCard
@@ -67,8 +86,6 @@ const ChampionPick: React.FC<ChampionPickProps> = ({ selectedCardIndex, onCardSe
         classname="absolute left-[720px] top-[-720px] animate-cursor2"
         position="left-bottom"
       />
-
-
     </div>
   );
 };
