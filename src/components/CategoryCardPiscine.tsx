@@ -6,6 +6,7 @@ interface CursorProps {
   borderColor: string;
   fontColor: string;
   classname?: string;
+  position: 'left-top' | 'left-bottom' | 'right-top' | 'right-bottom';
 }
 
 interface CategoryCardPiscineProps {
