@@ -30,8 +30,8 @@ const Winner = () => {
       "+=1"
     ).fromTo(
       buttonRef.current,
-      { opacity: 0, y: -50 },
-      { opacity: 1, y: 0, duration: 1 },
+      { opacity: 0 },
+      { opacity: 1, duration: 1 },
       "-=0.5"
     );
   }, []);
