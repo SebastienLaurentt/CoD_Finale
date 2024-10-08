@@ -31,7 +31,7 @@ const Pick = () => {
       />
       <div id="championButton" className="flex flex-col items-center">
         <LinkButton
-          to="/fight"
+          to="/prefight"
           ariaLabel="Cliquer ici pour commencer la partie après avoir sélectionné un champion"
           className="absolute xl:mt-1 2xl:bottom-[47px]"
           disabled={selectedCardIndex === null}
