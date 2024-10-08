@@ -25,7 +25,7 @@ const HomeHeader = () => {
   } xl:left-0 xl:top-0 xl:z-20 2xl:pt-5`;
 
 
-  if (location.pathname === '/prefight' || location.pathname === '/') {
+  if (location.pathname === '/prefight' || location.pathname === '/' || location.pathname === '/capture') {
     return null;
   }
 

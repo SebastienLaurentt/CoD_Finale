@@ -1,9 +1,10 @@
-import React, { RefObject } from 'react';
+import React, { RefObject } from "react";
+import { Link } from "react-router-dom";
 import ArtisteWinner from "../assets/Characters/ArtisteWinner.svg";
+import SurBoostedLoser from "../assets/Characters/SurBoostedLoser.svg";
 import BlueIcon from "../assets/Logos/BlueIcon.svg";
 import CoDLogo from "../assets/Logos/CoDLogo.svg";
 import PinkCodLogo from "../assets/Logos/PinkCodLogo.svg";
-import SurBoostedLoser from "../assets/Characters/SurBoostedLoser.svg";
 import Cursor from "./Cursor";
 
 interface WinnerCardProps {
@@ -11,7 +12,10 @@ interface WinnerCardProps {
   onArtisteHover: (isHovering: boolean) => void;
 }
 
-const WinnerCard: React.FC<WinnerCardProps> = ({ artisteRef, onArtisteHover }) => {
+const WinnerCard: React.FC<WinnerCardProps> = ({
+  artisteRef,
+  onArtisteHover,
+}) => {
   return (
     <div className="relative mx-auto  h-[631px] w-[1023px]">
       <div className="relative flex size-full flex-col overflow-hidden rounded-[60px] bg-primary pl-[86px] pt-12 text-primary-foreground">
@@ -48,14 +52,16 @@ const WinnerCard: React.FC<WinnerCardProps> = ({ artisteRef, onArtisteHover }) =
         alt="Clash of Dev Logo version rose"
         className="absolute -left-8 -top-8 "
       />
-      <img
-        ref={artisteRef}
-        src={ArtisteWinner}
-        alt="Image représentant le personnage artiste en vainqueur dessus le personnage boss appelé 'SurBoosted'"
-        className="absolute left-[420px] top-[180px] cursor-pointer"
-        onMouseEnter={() => onArtisteHover(true)}
-        onMouseLeave={() => onArtisteHover(false)}
-      />
+      <Link to="/capture">
+        <img
+          ref={artisteRef}
+          src={ArtisteWinner}
+          alt="Image représentant le personnage artiste en vainqueur dessus le personnage boss appelé 'SurBoosted'"
+          className="absolute left-[420px] top-[180px] cursor-pointer"
+          onMouseEnter={() => onArtisteHover(true)}
+          onMouseLeave={() => onArtisteHover(false)}
+        />
+      </Link>
       <img
         src={BlueIcon}
         alt="Rond bleu avec éclair blanc"
