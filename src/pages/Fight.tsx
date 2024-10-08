@@ -195,7 +195,7 @@ const Fight = () => {
         </ul>
 
         {/* Images */}
-        <div className="relative mb-10 mt-20 flex flex-row justify-between px-8">
+        <div className="relative flex flex-row justify-between px-8 2xl:mb-10 2xl:mt-20">
           <div className="relative">
             <img
               src={isArtisteHurt ? ArtisteFightHurt : ArtisteFight}

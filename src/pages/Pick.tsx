@@ -20,13 +20,13 @@ const Pick = () => {
     );
     gsap.fromTo(
       "#championButton",
-      { opacity: 0, },
+      { opacity: 0 },
       { opacity: 1, duration: 0.5, delay: 1 }
     );
   }, []);
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center 2xl:min-h-screen">
       <ChampionPick
         id="championCards"
         selectedCardIndex={selectedCardIndex}
@@ -36,8 +36,9 @@ const Pick = () => {
         <LinkButton
           to="/fight"
           ariaLabel="Cliquer ici pour commencer la partie après avoir sélectionné un champion"
-          className="absolute bottom-[47px]"
+          className="absolute 2xl:bottom-[47px] xl:mt-1"
           disabled={selectedCardIndex === null}
+          variant="tertiary"
         >
           Select Champion
         </LinkButton>

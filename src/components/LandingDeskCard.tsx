@@ -91,7 +91,7 @@ const LandingDeskCard = () => {
         bgColor="#F28164"
         borderColor="#D46F55"
         rotation={-16}
-        classname="absolute left-[900px] top-[150px] animate-cursor1"
+        classname="absolute left-[900px] 2xl:top-[150px] animate-cursor1"
         position="right-top"
       />
       <Cursor
@@ -100,7 +100,7 @@ const LandingDeskCard = () => {
         bgColor="#F588B9"
         borderColor="#D6699A"
         rotation={-16}
-        classname="absolute left-[-250px] top-[50px] animate-cursor2"
+        classname="absolute left-[-250px] 2xl:top-[50px] animate-cursor2"
         position="right-top"
       />
       <Cursor

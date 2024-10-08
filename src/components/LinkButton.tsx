@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 
 const buttonVariants = cva(
   "w-[212px] rounded-[60px] px-2.5 py-[22px] text-center text-sm font-semibold transition-transform",
-  { 
+  {
     variants: {
       variant: {
-        default: "bg-primary text-primary-foreground ",
+        default:
+          "bg-primary text-primary-foreground xl:bg-background xl:text-foreground 2xl:bg-primary 2xl:text-primary-foreground ",
         secondary: "bg-background text-foreground",
+        tertiary: "xl:bg-primary xl:text-primary-foreground",
       },
       disabled: {
         true: "pointer-events-none cursor-not-allowed opacity-60",

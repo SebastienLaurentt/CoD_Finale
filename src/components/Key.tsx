@@ -1,6 +1,6 @@
+import gsap from "gsap";
 import { MoveDown, MoveLeft, MoveRight, MoveUp, X } from "lucide-react";
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
+import { useEffect, useRef } from "react";
 
 type IconType = "up" | "down" | "left" | "right" | "hidden";
 type ResultType = "success" | "failure" | "pending" | "timeout";
@@ -18,7 +18,9 @@ const iconComponents = {
 };
 
 const ConfettiDot = ({ className }: { className: string }) => (
-  <span className={`absolute rounded-full border-2 border-white bg-[#ECFFCE] ${className}`} />
+  <span
+    className={`absolute rounded-full border-2 border-white bg-[#ECFFCE] ${className}`}
+  />
 );
 
 const confettiDots = [
@@ -37,14 +39,15 @@ const Key = ({ icon, result }: KeyProps) => {
   useEffect(() => {
     if (result === "success" && confettiRef.current) {
       const dots = confettiRef.current.children;
-      gsap.fromTo(dots, 
+      gsap.fromTo(
+        dots,
         { scale: 0, opacity: 0 },
-        { 
-          scale: 1, 
-          opacity: 1, 
-          duration: 0.5, 
+        {
+          scale: 1,
+          opacity: 1,
+          duration: 0.5,
           stagger: 0.05,
-          ease: "back.out(1.7)"
+          ease: "back.out(1.7)",
         }
       );
     }
@@ -72,7 +75,7 @@ const Key = ({ icon, result }: KeyProps) => {
   if (icon === "hidden") {
     return (
       <div
-        className={`relative inline-flex size-[106px] items-center justify-center rounded-[10px] ${getBgColor()} ${getBorderStyle()}`}
+        className={`relative inline-flex size-[72px] items-center justify-center rounded-[10px] 2xl:size-[106px] ${getBgColor()} ${getBorderStyle()}`}
       >
         {/* Empty div for hidden icon */}
       </div>
@@ -83,7 +86,7 @@ const Key = ({ icon, result }: KeyProps) => {
 
   return (
     <div
-      className={`relative inline-flex size-[106px] items-center justify-center rounded-[10px] ${getBgColor()} ${getBorderStyle()}`}
+      className={`relative inline-flex size-[72px] items-center justify-center rounded-[10px] 2xl:size-[106px] ${getBgColor()} ${getBorderStyle()}`}
     >
       {result === "success" && (
         <div ref={confettiRef}>
@@ -93,9 +96,10 @@ const Key = ({ icon, result }: KeyProps) => {
         </div>
       )}
       <IconComponent
-        className={result === "timeout" ? "text-[#D46F55]" : "text-[#9B9B9B]"}
+        className={`size-[26px] 2xl:size-[38px] ${
+          result === "timeout" ? "text-[#D46F55]" : "text-[#9B9B9B]"
+        }`}
         strokeWidth="3"
-        size={38}
       />
     </div>
   );

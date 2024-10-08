@@ -12,7 +12,7 @@ function App() {
     <>
       <Header />
       <main className="px-2 2xl:px-0">
-        <div className="hidden 2xl:block">
+        <div className="hidden xl:block">
           <Routes>
             <Route path="/" element={<Home />} />
           </Routes>

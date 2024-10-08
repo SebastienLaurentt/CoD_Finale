@@ -3,7 +3,7 @@ import LinkButton from "../components/LinkButton";
 
 const Home = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center 2xl:min-h-screen">
       <LandingDeskCard />
       <LinkButton
         to="/pick"

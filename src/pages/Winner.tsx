@@ -63,7 +63,7 @@ const Winner = () => {
   };
 
   return (
-    <div className="flex min-h-screen flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center 2xl:min-h-screen">
       <div ref={winnerCardRef} className="opacity-0">
         <WinnerCard
           artisteRef={artisteRef}
