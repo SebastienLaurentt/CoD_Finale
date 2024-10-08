@@ -23,7 +23,10 @@ const CardsSection = () => {
             paragraphe1={card.paragraphe1}
             paragraphe2={card.paragraphe2}
             logoSrc={card.logoSrc}
-            cursors={card.cursors}
+            cursors={card.cursors.map(cursor => ({
+              ...cursor,
+              position: 'left-top' 
+            }))}
           />
         </div>
       ))}

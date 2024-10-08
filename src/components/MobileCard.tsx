@@ -8,8 +8,8 @@ const MobileCard = () => {
       <p className="mt-[102px] text-justify text-[40px] font-semibold leading-[48px]">
         Oops ! Le gameplay est réservé aux joueurs PC (ehoui)...{" "}
       </p>
-      <LinkButton to="/pick" className="mx-auto mt-[97px]" ariaLabel="Cliquer ici pour commencer la partie" variant="secondary">
-        Start the Game
+      <LinkButton to="/" className="mx-auto mt-[97px]" ariaLabel="Cliquer ici pour commencer la partie" variant="secondary">
+        Go back!
       </LinkButton>
       <img
         src={CoDLogo}
