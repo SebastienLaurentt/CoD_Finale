@@ -9,6 +9,71 @@
   --primary-foreground: #262625;
 }
 
+/* Piscine */
+.gradient-bottom-10 {
+  background: linear-gradient(
+    to bottom,
+    #f3f3f1 0%,
+    #f3f3f1 80%,
+    transparent 100%
+  );
+}
+
+.card-item {
+  position: sticky;
+  top: 48px;
+  transition: all 0.3s ease;
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+
+.card-item.sticky {
+  transform: scale(0.9);
+  z-index: 2;
+}
+
+.card-item:not(.sticky):not(:first-child) {
+  transform: translateY(100%) scale(1);
+  opacity: 0;
+}
+
+.card-item.sticky + .card-item:not(.sticky) {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+  z-index: 1;
+}
+
+@media (max-width: 767px) {
+  .card-item {
+    top: 120px;
+  }
+  .card-item.sticky {
+    transform: scale(0.9);
+  }
+  .card-item:not(.sticky):not(:first-child) {
+    transform: translateY(100%) scale(1);
+    opacity: 0;
+  }
+  .card-item.sticky + .card-item:not(.sticky) {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@media (max-width: 1279px) {
+  .card-item {
+    top: 200px;
+  }
+}
+
+@media (max-width: 1439px) {
+  .card-item {
+    top: 80px;
+  }
+}
+
+/* Finale */
 @keyframes malus {
   0% {
     transform: translateY(-20px);

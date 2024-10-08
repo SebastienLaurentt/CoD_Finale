@@ -10,7 +10,7 @@ interface CursorProps {
 }
 
 interface CategoryCardProps {
-  bgColor: string;
+  bgColor?: string;  // Make bgColor optional
   pointsNumber: string;
   name: string;
   imgSrc: string;
@@ -63,7 +63,7 @@ const CategoryCard: React.FC<CategoryCardProps> = ({
         </div>
         <div className="absolute left-[275px] top-[112px] flex flex-col-reverse gap-y-[35px]">
           {cursors.map((cursorProps, index) => (
-            <Cursor key={index} {...cursorProps} position="left-top" />
+            <Cursor key={index} {...cursorProps} position="left-top" fontColor="text-foreground" />
           ))}
         </div>
       </div>

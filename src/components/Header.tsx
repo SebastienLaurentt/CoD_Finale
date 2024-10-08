@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import SwitchOnLogo from "../assets/SwitchOnLogo.svg";
 import FinaleLogo from "./FinalLogo";
 
-const Header = () => {
+const HomeHeader = () => {
   const location = useLocation();
 
   const getHeaderText = () => {
@@ -25,7 +25,7 @@ const Header = () => {
   } xl:left-0 xl:top-0 xl:z-20 2xl:pt-5`;
 
 
-  if (location.pathname === '/prefight') {
+  if (location.pathname === '/prefight' || location.pathname === '/') {
     return null;
   }
 
@@ -42,4 +42,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HomeHeader;

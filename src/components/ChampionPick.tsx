@@ -1,7 +1,7 @@
 import BlueIcon from "../assets/BlueIcon.svg";
 import GreenIcon from "../assets/GreenIcon.svg";
 import PinkCodLogo from "../assets/PinkCodLogo.svg";
-import categoryCardData from "../lib/categoryCardData";
+import categoryCardData, { CategoryCardData } from "../lib/categoryCardData";
 import CategoryCard from "./CategoryCard";
 import Cursor from "./Cursor";
 
@@ -16,15 +16,39 @@ const ChampionPick = ({
   selectedCardIndex,
   onCardSelect,
 }: ChampionPickProps) => {
+  const desiredOrder = [
+    "LE MAITRE DE LA FLUIDITÉ",
+    "L’ARTISTE DE RENOM",
+    "LE BÂTISSEUR DE CODE",
+  ];
+
+  const filteredAndOrderedCards = desiredOrder
+    .map((name) =>
+      categoryCardData.find(
+        (card) => card.name.toUpperCase() === name.toUpperCase()
+      )
+    )
+    .filter((card): card is CategoryCardData => card !== undefined);
+
+  console.log("Filtered cards:", filteredAndOrderedCards);
+
   return (
     <div id={id} className="relative h-[600px] w-[1130.26px] opacity-0">
       <div className="flex flex-row gap-x-[16.13px]">
-        {categoryCardData.map((cardData, index) => (
+        {filteredAndOrderedCards.map((cardData, index) => (
           <CategoryCard
             key={index}
             {...cardData}
+            paragraphe1={cardData?.paragraphe1 ?? <></>}
+            paragraphe2={cardData?.paragraphe2 ?? <></>}
+            name={cardData?.name || ""}
+            pointsNumber={cardData?.pointsNumber ?? ""}
             isSelected={index === selectedCardIndex}
             onSelect={() => onCardSelect(index)}
+            bgColor={cardData?.bgColor ?? ""}
+            imgSrc={cardData?.imgSrc || ""}
+            imgAlt={cardData?.imgAlt || ""}
+            logoSrc={cardData?.logoSrc || ""}
           />
         ))}
       </div>
