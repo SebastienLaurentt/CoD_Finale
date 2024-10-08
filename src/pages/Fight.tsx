@@ -1,16 +1,18 @@
 import gsap from "gsap";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import ArtisteBg from "../assets/Images/ArtisteBg.webp";
 import ArtisteFight from "../assets/Characters/ArtisteFight.svg";
 import ArtisteFightHurt from "../assets/Characters/ArtisteFightHurt.svg";
 import BossFight from "../assets/Characters/BossFight.svg";
 import BossFightHurt from "../assets/Characters/BossFightHurt.svg";
+import ArtisteBg from "../assets/Images/ArtisteBg.webp";
 import FightLogo from "../assets/Logos/FightLogo.svg";
 import MalusImage from "../assets/Logos/Malus.svg";
+import FightSound from "../assets/Song/Fight.mp3";
 import Key from "../components/Key";
 import Point from "../components/Point";
 import { animateHurt } from "../lib/animateHurt";
+import ScratchSound from "../assets/Song/Scratch.mp3";
 
 // 1) Define the directions and generate random keys
 const directions: ("left" | "up" | "down" | "right")[] = [
@@ -26,6 +28,8 @@ const randomKeys = Array(10)
 
 const Fight = () => {
   const navigate = useNavigate();
+  const audioRef = useRef<HTMLAudioElement>(null);
+  const scratchAudioRef = useRef<HTMLAudioElement>(null);
 
   const [gameStarted, setGameStarted] = useState(false);
 
@@ -58,6 +62,14 @@ const Fight = () => {
       });
 
       if (isCorrect) {
+        // Play scratch sound
+        if (scratchAudioRef.current) {
+          scratchAudioRef.current.currentTime = 0; // Reset to start
+          scratchAudioRef.current.play().catch(error => {
+            console.error("Error playing scratch sound:", error);
+          });
+        }
+
         setGreenPoints((prev) => {
           const newPoints = prev + 1;
           if (newPoints === 6) {
@@ -168,39 +180,30 @@ const Fight = () => {
   }, [gameStarted, startTimer]);
 
   useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play().catch((error) => {
+        console.error("Erreur lors de la lecture audio:", error);
+      });
+    }
+
     const timeline = gsap.timeline();
 
     timeline
-      // Commencer avec un écran noir visible
       .set("#black-screen", { y: "0%", autoAlpha: 1 })
-      .set("#fight-container", { autoAlpha: 1 })
-      .set("#background", { autoAlpha: 0.2 })
-      .set("#characters", { autoAlpha: 1 })
-      .set("#scores", { autoAlpha: 0 })
-      .set("#keys", { autoAlpha: 0 })
-      .set("#press-enter", { autoAlpha: 0 })
 
       .to("#black-screen", { duration: 0.5 })
-
-      // Faire disparaître l'écran noir vers le bas
       .to("#black-screen", {
         y: "100%",
         duration: 1,
         ease: "power2.inOut",
       })
-
-      // Faire apparaître les scores
-      .to("#scores", { autoAlpha: 1, duration: 0.5 })
-
-      // Faire apparaître les touches
-      .to("#keys", { autoAlpha: 1, duration: 0.5 })
-
-      // Faire apparaître le "Press Enter"
       .to("#press-enter", { autoAlpha: 1, duration: 0.5 });
   }, []);
 
   return (
     <div id="fight-container" className="relative h-screen">
+      <audio ref={audioRef} src={FightSound} loop />
+      <audio ref={scratchAudioRef} src={ScratchSound} />
       <div
         id="background"
         className="absolute inset-0 bg-cover opacity-20"
@@ -292,9 +295,10 @@ const Fight = () => {
       {!gameStarted && (
         <div
           id="press-enter"
-          className="animate-arcade-blink absolute inset-0 z-30 flex items-center justify-center bg-black/70 text-3xl font-bold uppercase text-foreground"
+          className="animate-arcade-blink absolute inset-0 z-30 flex flex-col items-center justify-center gap-y-4 bg-black/70 text-3xl font-bold text-foreground"
         >
-          Press Enter
+          <span>LEAD DEV wants to fight !</span>
+          <span className="text-xs uppercase">- Press Enter -</span>
         </div>
       )}
 

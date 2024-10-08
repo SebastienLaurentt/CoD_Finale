@@ -1,17 +1,25 @@
 import gsap from "gsap";
 import { TextPlugin } from "gsap/TextPlugin";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import ArtisteBg from "../assets/Images/ArtisteBg.webp";
 import ArtisteFight from "../assets/Characters/ArtisteFight.svg";
 import BossFight from "../assets/Characters/BossFight.svg";
+import WalkSound from "../assets/Song/Walk.mp3";
 
 gsap.registerPlugin(TextPlugin);
 
 const Prefight = () => {
   const navigate = useNavigate();
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.play().catch(error => {
+        console.error("Erreur lors de la lecture audio:", error);
+      });
+    }
+
     const timeline = gsap.timeline({ delay: 1 });
 
     timeline.to("#artiste", {
@@ -82,7 +90,6 @@ const Prefight = () => {
           duration: 1,
           ease: "power2.inOut",
           onComplete: () => {
-            // Redirection vers /fight après la fin de l'animation
             navigate("/fight");
           },
         }
@@ -91,6 +98,7 @@ const Prefight = () => {
 
   return (
     <div className="relative h-screen" id="prefightBackground">
+      <audio ref={audioRef} src={WalkSound} />
       <div
         className="absolute inset-0 bg-cover opacity-20"
         style={{ backgroundImage: `url(${ArtisteBg})` }}

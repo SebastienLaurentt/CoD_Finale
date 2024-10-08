@@ -1,5 +1,6 @@
 import { gsap } from "gsap";
 import { useEffect, useRef, useState } from "react";
+import WinSound from "../assets/Song/Win.mp3";
 import LinkButton from "../components/LinkButton";
 import WinnerCard from "../components/WinnerCard";
 import { confettiFireworks } from "../components/ui/confetti";
@@ -8,12 +9,18 @@ const Winner = () => {
   const winnerCardRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLAnchorElement>(null);
   const artisteRef = useRef<HTMLImageElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
     const tl = gsap.timeline();
 
-    // Start confetti
+    if (audioRef.current) {
+      audioRef.current.play().catch((error) => {
+        console.error("Erreur lors de la lecture audio:", error);
+      });
+    }
+
     confettiFireworks();
 
     tl.fromTo(
@@ -64,6 +71,7 @@ const Winner = () => {
 
   return (
     <div className="flex flex-col items-center justify-center 2xl:min-h-screen">
+      <audio ref={audioRef} src={WinSound} />
       <div ref={winnerCardRef} className="opacity-0">
         <WinnerCard
           artisteRef={artisteRef}
